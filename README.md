@@ -1,14 +1,14 @@
 # Q_learning_treinamento_temperatura
-Construir modelo de aprendizado de reforço para ajustar a temperatura automaticamente para obtê-lo na faixa ideal
+Build a reinforcement learning model to automatically adjust the temperature to get it in the ideal range
 
-Este é um exemplo de implementação do algoritmo Q-Learning para um ambiente de controle de temperatura. O objetivo é treinar um agente para escolher ações que permitam manter a temperatura dentro do intervalo desejado de 37 a 39 graus Celsius.
+This is an example implementation of the Q-Learning algorithm for a temperature control environment. The goal is to train an agent to choose actions that allow maintaining the temperature within the desired range of 37 to 39 degrees Celsius.
 
-O código começa definindo os hiperparâmetros do modelo, incluindo a taxa de aprendizagem, o fator de desconto, a probabilidade de escolha aleatória de ação e o número de episódios de treinamento. Em seguida, são definidos o range de temperaturas e as ações possíveis, que neste caso são diminuir em um grau Celsius, manter a temperatura ou aumentar em um grau Celsius.
+The code starts by defining the model's hyperparameters, including the learning rate, discount factor, probability of randomly choosing an action, and the number of training episodes. Then, the temperature range and possible actions are defined, which in this case are to decrease by one degree Celsius, maintain the temperature, or increase by one degree Celsius.
 
-A Q-table é inicializada como uma matriz de zeros, com dimensões baseadas no range de temperatura e no número de ações possíveis. A função discretize_temp é usada para discretizar a temperatura em um número inteiro que pode ser usado como um índice na Q-table.
+The Q-table is initialized as a matrix of zeros, with dimensions based on the temperature range and the number of possible actions. The discretize_temp function is used to discretize the temperature into an integer that can be used as an index in the Q-table.
 
-A função choose_action escolhe a ação que o agente deve tomar com base na política epsilon-greedy, que explora uma ação aleatória com probabilidade epsilon e escolhe a ação com maior valor Q com probabilidade 1 - epsilon.
+The choose_action function chooses the action that the agent should take based on the epsilon-greedy policy, which explores a random action with probability epsilon and chooses the action with the highest Q-value with probability 1 - epsilon.
 
-O loop de treinamento é executado n_episodes vezes, inicializando a temperatura aleatoriamente dentro do intervalo permitido e atualizando a Q-table com base nas ações tomadas e nas recompensas recebidas. A recompensa é calculada como 1 se a temperatura estiver dentro do intervalo desejado e -1 caso contrário.
+The training loop is executed n_episodes times, initializing the temperature randomly within the allowed range and updating the Q-table based on the actions taken and the rewards received. The reward is calculated as 1 if the temperature is within the desired range and -1 otherwise.
 
-O loop de teste é usado para verificar se o agente aprendeu a controlar a temperatura. A temperatura é inicializada aleatoriamente e o agente escolhe a ação apropriada a cada etapa de tempo. As leituras de temperatura e as ações escolhidas são impressas na tela.
+The testing loop is used to check if the agent has learned to control the temperature. The temperature is initialized randomly, and the agent chooses the appropriate action at each time step. The temperature readings and chosen actions are printed on the screen.
